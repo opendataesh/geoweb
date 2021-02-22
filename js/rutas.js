@@ -13,7 +13,7 @@ function addRutas() {
     },
     'paint': {
     'line-color': '#ff0000',
-    'line-width': 3
+    'line-width': 8
     }
     });
 
@@ -21,14 +21,17 @@ function addRutas() {
 
 function zoomToRutas(valores) {
 
+    console.info("valores", valores);
     var coord = valores.split("/");
+
+    console.info("coord", coord);
 
     map.flyTo({
             center: [coord[2], coord[1]],
             zoom: coord[0]
         });
 
-    } //fin funcion
+} //fin funcion
 
 var animacion;
 function rotarCamara(timestamp) {

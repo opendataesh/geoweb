@@ -14,7 +14,7 @@
         var map;
         function init() {
             mapboxgl.accessToken =
-                'pk.eyJ1IjoiZ2lzbWFzdGVybTIiLCJhIjoiY2plZHhubTQxMTNoYzMza3Rqa3kxYTdrOCJ9.53B1E6mKD_EQOVb2Y0-SsA';
+                'pk.eyJ1IjoibWFwYm94ZXNoIiwiYSI6ImNrazJkY25vcjEwM28ycXQ3eWZvMmI5NGwifQ.pHd5DwxQiIqtRVMejCpjQw';
              map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/satellite-streets-v10',
@@ -31,9 +31,10 @@
             map.on('load', function () {
              add3D();
              addRutas();
-            rotarCamara(0);
+             rotarCamara(0);
+            // add3DICGC();
 
-            }); //fin onload      
+            }); //fin onload
 
             map.on("click",function(e){
                 finalRotarCamara()
@@ -47,20 +48,24 @@
             map.on("zoomend",function(e){
                 rotarCamara(0);
 
-            });          
+            }); 
 
         } // final init
     </script>
     </head>
 
     <body onload="init()">
-        <div class="panelTopIzquierda">
-            <select onChange="zoomToRutas(this.value)">
-                <option selected value="14/41.60044/1.77878">Ruta 1</option>
-                <option value="12.96/41.76589/2.30274">Ruta 2</option>
-                <option value="13.04/42.31892/3.26054">Ruta 3</option>
-            </select>
-         </div>
+        <div class="panelTitulo">
+        Mapa rutas 3D
+    </div>
+    <div class="panelTopIzquierda">
+        <br>
+        <select onChange="zoomToRutas(this.value)">
+            <option selected value="14/41.60044/1.77878">Ruta 1</option>
+            <option value="12.96/41.76589/2.30274">Ruta 2</option>
+            <option value="13.04/42.31892/3.26054">Ruta 3</option>
+        </select>
+    </div>
         <div id="map"></div>
     </body>
 
