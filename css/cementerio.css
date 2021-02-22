@@ -1,0 +1,13 @@
+.map-overlay {
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    position: absolute;
+    width: 13%;
+    bottom: 40px;
+    left: 10px;
+    padding: 10px;
+    z-index: 1000;
+    display: none;
+  }
