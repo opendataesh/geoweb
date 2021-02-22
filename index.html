@@ -1,56 +1,155 @@
-<html lang="es">
-    <head>
-    <title>Leaflet ejemplo plugin</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="author" content="autor"/>
-      <meta name="description" content="descripción página">
-      <meta name="robots" content="index,follow">
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-      <!--Plugin OSMGeocode -->
-      <!--si descargamos 3.3 -->
-      <!--<script src="js/Control.OSMGeocoder.js"></script>-->
-   <!--<link rel="stylesheet" href="js/Control.OSMGeocoder.css" />-->
+<html>
 
-  <!--si añadimos directamente 3.1-->
-    <script src="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.js"></script>
-    <link rel="stylesheet" href="https://rawgit.com/k4r573n/leaflet-control-osm-geocoder/master/Control.OSMGeocoder.css" />
+<head>
+
+  <title>Mis mapas M2B</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="autor" />
+  <meta name="description" content="descripción página">
+  <meta name="robots" content="index,follow">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+  <style>
+    .seccion {
+      border-radius: 0px !important;
+    }
+
+    .container {
+      margin-top: 5px;
+    }
+
+    .mapbox {
+      background-color: #e7e7f1;
+    }
+
+    .kepler {
+      background-color: #f1e7ea;
+    }
+
+    .practicas {
+      background-color: #e7f0f1;
+    }
+
+    .leaflet {
+      background-color: #e7f1e8;
+    }
 
 
-      <style>
-        body {
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-        }
-        #map {
-          height: 100%;
-          width: 100%;
-        }
-       </style>
-        <script>
-            var map,capa1;
-            function init(){
-                map = L.map("map",{
-                center:[41.6863, 1.8382],
-                zoom:8
-                });
-                capa1= L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {
-                maxZoom : 19,
-                minZoom : 1,
-                attribution : "OSM"
-                });
-                capa1.addTo(map);
-                //añadir plugin
-                var osmGeocoder = new L.Control.OSMGeocoder({placeholder: 'Buscar lugar...'});
-                    map.addControl(osmGeocoder);
+    small {
+      font-size: 60% !important;
+    }
 
-            }
-            </script>
-    </head>
-    <body onLoad="init()">
-        <div id="map"></div>
-    </body>
-    </html>
+
+    .navbar {
+      background-color: #f1e9e7 !important;
+      border-radius: 0px !important;
+    }
+
+    .row {     
+      margin-top: 10px;
+
+    }
+
+
+    body {
+      font-family: 'Inconsolata', sans-serif !important;
+      font-size:16px !important;
+
+    }
+
+    @media screen and (max-width: 500px) {
+      body {
+        font-size: 80% !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-light bg-light">
+      <h4>
+        Mis mapas módulo M2B
+        <br>
+        <small>
+          Mapas y OpenData, Localización, Visualización y Análisis de GeoDatos
+        </small>
+      </h4>
+    </nav>
+    <br>
+    <div class="alert seccion leaflet">
+      <h5>Mapas Leaflet</h5>
+      <div class="row">
+        <div class="col">
+          <ul>
+            <li><a href="01leaflet-basico.html" target="_blank">Leaflet Básico</a>
+            </li>
+            <li><a href="02leaflet-plugin.html" target="_blank">Leaflet Plugin</a>
+            </li>
+            <li><a href="03leaflet-controles.html" target="_blank">Leaflet Controles</a>
+            </li>
+            <li><a href="04leatlet-provider.html" target="_blank">Leaflet Provider</a>
+            </li>
+            <li><a href="05mapabase.html" target="_blank">Mapa Base</a>
+            </li>
+            <li><a href="06farmacias.html" target="_blank">Farmacias</a>
+            </li>
+            <li><a href="farmacias-busqueda.html" target="_blank">Farmacias Busqueda</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="alert seccion mapbox">
+      <h5>Mapas Mapbox GL JS</h5>
+      <div class="row">
+        <div class="col">
+          <ul>
+            <li><a href="mapbox-icgc.html" target="_blank">Mapas de mapbox-icgc</a>
+            </li>
+            <li><a href="mapa-comparador.html" target="_blank">Mapas Comparador</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert seccion kepler">
+      <h5>Kepler.Gl</h5>
+
+      <div class="row">
+        <div class="col">
+          <ul>
+            <li>
+              <!--añadir aqui entrada-->
+            </li>
+            <li>
+              <!--añadir aqui entrada-->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert seccion practicas">
+      <h5>Prácticas puntuables</h5>
+      <div class="row">
+        <div class="col">
+          <ul>
+            <li>
+              <!--añadir aqui entrada-->
+            </li>
+            <li>
+              <!--añadir aqui entrada-->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
