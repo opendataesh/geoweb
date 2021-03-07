@@ -12,7 +12,7 @@ function addconstruccionCapa() {
         "source": "construccion_source",
         "source-layer": "TG_CONSTRUCCION1-a4i8iu", // Nuestro nombre Tileset
         "maxzoom": 21,
-        "minzoom": 14,
+        "minzoom": 15,
         "filter": [">", "Piso", 0],
         "paint": {
                 "fill-extrusion-color": [
