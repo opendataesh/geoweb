@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Catastro Poroy</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" type="text/css"/>
+
+    <link href='css/estilobase.css' rel='stylesheet' />
+
+    <script src='js/construccion.js'></script>
+    <script src='js/3d.js'></script>
+    <script>
+        //Añadir vuestor token y/o estilo !!
+        var map;
+        function init() {
+            mapboxgl.accessToken =
+                'pk.eyJ1IjoibWFwYm94ZXNoIiwiYSI6ImNrazJkY25vcjEwM28ycXQ3eWZvMmI5NGwifQ.pHd5DwxQiIqtRVMejCpjQw';
+            map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/satellite-streets-v10',
+                center: [-72.013175, -13.504832],
+                zoom: 16,
+                attributionControl: false,
+                pitch: 45,
+                hash: true
+            });
+
+            map.addControl(new mapboxgl.AttributionControl({ compact: true }));
+            map.addControl(new mapboxgl.NavigationControl());
+
+            map.addControl(
+                new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl,
+                collapsed:true,
+                bbox:[-72.02,-13.5,-72.00,-13.5],
+                placeholder:"Buscar..."
+                }));
+
+            map.on('load', function () {
+
+                addconstruccionCapa();
+                
+                add3D();
+                addPopupToMapEdificios3D("construccion");
+            }); //fin onload
+
+        } // final init
+    </script>
+</head>
+
+<body onload="init()">
+
+    <div class="panelTitulo">
+        Mapa Catastro Poroy
+    </div>
+    <div class="panelTopIzquierda">
+        <label id="altura">Más de 0 pisos</label>
+        <input id="slider" onChange="filtrarconstruccion(this.value)" type="range" min="1" max="50" step="1" value="0" />
+        <hr>
+        <input id="textos" onChange= "verTextos(this.checked)" type="checkbox" checked >Ver topónimos
+    </div>
+
+    <div id="map"></div>
+</body>
+
+</html>

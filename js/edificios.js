@@ -2,7 +2,7 @@ function addEdificiosCapa() {
 
     map.addSource("edificios_source", {
         "type": "vector",
-        "url": "mapbox://gismasterm2.2ee1v0g9"  // Nuestor ID Tileset
+        "url": "mapbox://mapboxesh.codn2sky"  // Nuestor ID Tileset
 
     }); //fin map source
 
@@ -11,7 +11,7 @@ function addEdificiosCapa() {
         "id": "edificios",
         "type": "fill-extrusion",
         "source": "edificios_source",
-        "source-layer": "construcciones-44q0u9", // Nuestro nombre Tileset
+        "source-layer": "construcciones-42jdjz", // Nuestro nombre Tileset
         "maxzoom": 21,
         "minzoom": 15,
         "filter": [">", "numberOfFl", 0],
